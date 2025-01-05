@@ -1,9 +1,14 @@
 # 📢 NewsFlash API
 
 ## 📄 **Descrição do Projeto**
-A **NewsFlash API** é uma aplicação desenvolvida em **Java 17** usando **Spring WebFlux** para fornecer notícias em tempo real e enviar notificações personalizadas de breaking news por meio do **Apache Kafka**. O objetivo do projeto é demonstrar o uso de tecnologias modernas para criar uma API escalável e performática.
+A **NewsFlash API** é uma aplicação desenvolvida em **Java 17** usando **Spring WebFlux** com o objetivo de fornecer notificações em tempo real de notícias relevantes. O projeto foi criado para praticar conceitos de APIs reativas, **Kafka**, **Redis**, e **arquitetura hexagonal**, com suporte completo para conteinerização.
 
 ---
+
+## 🎯 **Objetivo do Projeto**
+
+O objetivo principal do NewsFlash API é permitir que usuários recebam notícias personalizadas e notificações em tempo real através de um sistema escalável e performático. A aplicação consome dados de uma API externa de notícias e utiliza Kafka para enviar alertas de breaking news.
+
 
 ## 🛠️ **Tecnologias Utilizadas**
 - **Java 17**
@@ -28,6 +33,21 @@ O projeto foi desenvolvido utilizando a **Arquitetura Hexagonal**, garantindo um
 - **Application (Camada de Aplicação)**: Endpoints REST e configuração da aplicação.
 
 ---
+
+## 📦 Estrutura do Projeto
+O projeto segue a **arquitetura hexagonal**, que facilita a separação de responsabilidades e garante flexibilidade na manutenção e evolução da aplicação.
+
+```
+newsflash-api
+├── adapters
+│   ├── in
+│   └── out
+├── application
+│   └── services
+├── domain
+├── infrastructure
+└── README.md
+```
 
 ## 📋 **Funcionalidades**
 - 📑 **Consulta de notícias em tempo real** via API externa.
@@ -101,9 +121,13 @@ Os testes unitários foram escritos usando **JUnit 5** e **Mockito**. Para rodar
 
 ---
 
-## 🤝 **Contribuição**
-Contribuições são bem-vindas! Sinta-se à vontade para abrir issues e enviar pull requests.
-
+## 🤝 Como Contribuir
+Contribuições são bem-vindas! Siga os passos abaixo para contribuir:
+1. Faça um fork do projeto.
+2. Crie uma branch com sua feature: `git checkout -b minha-feature`.
+3. Commit suas alterações: `git commit -m 'Adiciona minha feature'`.
+4. Faça um push para a branch: `git push origin minha-feature`.
+5. Abra um Pull Request.
 ---
 
 ## 📄 **Licença**
