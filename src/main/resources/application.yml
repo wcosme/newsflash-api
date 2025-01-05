@@ -1,1 +1,3 @@
-spring.application.name=NewsFlash API
+spring:
+  application:
+    name: "NewsFlash API"
