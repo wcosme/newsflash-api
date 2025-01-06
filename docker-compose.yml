@@ -1,20 +1,35 @@
-version: '3.8'
 services:
-  mongodb:
-    image: mongo:5.0
-    container_name: mongodb
+  newsflash-api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: newsflash-api  # Nome do container definido
     ports:
-      - "27017:27017"
+      - "8080:8080"
+    environment:
+      - SPRING_DATA_MONGODB_URI=mongodb://mongodb-newsflash:27017/newsflash
+    depends_on:
+      - mongodb-newsflash
+    networks:
+      - newsflash-network
+
+  mongodb-newsflash:
+    image: mongo:5.0
+    container_name: mongodb-newsflash
+    ports:
+      - "27018:27017"  # Porta diferente para evitar conflitos
     networks:
       - newsflash-network
     volumes:
-      - mongodb_data:/data/db
+      - mongodb_newsflash_data:/data/db
 
-  redis:
+  redis-newsflash:
     image: redis:7
-    container_name: redis
+    container_name: redis-newsflash
     ports:
-      - "6379:6379"
+      - "6380:6379"  # Porta diferente para evitar conflitos
+    volumes:
+      - redis_newsflash_data:/data
     networks:
       - newsflash-network
 
@@ -23,4 +38,5 @@ networks:
     driver: bridge
 
 volumes:
-  mongodb_data:
+  mongodb_newsflash_data:
+  redis_newsflash_data:
